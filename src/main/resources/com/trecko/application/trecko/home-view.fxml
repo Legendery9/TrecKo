@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+THESIS: An auditable local ledger, not an automatic debt allocator.
+OWN-WORLD: Matte ink, ruled rows, catalog codes, and crisp finance status colors.
+STORY: Choose a branch, record shared purchases, and inspect exactly who owes whom.
+FIRST VIEWPORT: Fixed identity and branch controls above five task tabs; transactions open first.
+FORM: Catalog-sleeve direction, grounded candidate 6; seed 64a85697.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->
+<BorderPane fx:id="root" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.trecko.application.trecko.HomeController"
+            styleClass="app-root">
+    <top>
+        <VBox styleClass="top-shell">
+            <HBox alignment="CENTER_LEFT" spacing="18" styleClass="topbar">
+                <VBox spacing="2" styleClass="brand-lockup">
+                    <Label text="TrecKo" styleClass="brand-name"/>
+                    <Label text="LOCAL DEBT LEDGER / v1.1" styleClass="brand-code"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="BRANCH" styleClass="field-code"/>
+                <ComboBox fx:id="branchSelector" prefWidth="340" promptText="Chọn chi nhánh"/>
+                <Label fx:id="profileName" styleClass="profile-chip"/>
+                <Button text="Tìm kiếm" onAction="#onSearch" styleClass="quiet-button"/>
+                <Button text="Sao lưu" onAction="#onBackupQuick" styleClass="quiet-button"/>
+                <Button text="Cài đặt" onAction="#onOpenSettings" styleClass="quiet-button"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabs" tabClosingPolicy="UNAVAILABLE" styleClass="main-tabs"/>
+    </center>
+    <padding>
+        <Insets top="0" right="28" bottom="22" left="28"/>
+    </padding>
+</BorderPane>
